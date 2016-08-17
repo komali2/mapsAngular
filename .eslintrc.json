@@ -1,10 +1,11 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jasmine": true
     },
     "globals":{
-        "angular": 1
+        "angular": true
     },
     "extends": "eslint:recommended",
     "rules": {
