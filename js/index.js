@@ -1,1 +1,4 @@
-var app = angular.module('mapApp', []);
+var app = angular.module('mapApp', [])
+    .controller('mainController', ['$scope', ($scope)=>{
+        
+    }]);
