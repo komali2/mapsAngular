@@ -10,8 +10,17 @@
         <nav>
             
         </nav>
-        <div class='main'>
+        <div class='main' ng-controller='mainController'>
             Test
+            <div id='searchArea' class='area' ng-controller='searchController'>
+                This is search area. 
+            </div>
+            <div id='mapArea' class='area' ng-controller='mapController'>
+                This is map area.
+            </div>
+            <div id='listArea' class='area' ng-controller='listController'>
+                This is list area.
+            </div>
         </div>
     </body>
 
