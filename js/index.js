@@ -6,28 +6,7 @@ var app = angular.module('mapApp', [])
     })
     .factory('mapFactory', [()=>{
         let api = {};
-        // var map;
 
-        // api.initMap = function(){
-        //     console.log('i init');
-        //     let pyrmont = {lat: -33.867, lng: 151.195};
-
-        //     map = new window.google.maps.Map(document.getElementById('map'), {
-        //         center: pyrmont,
-        //         zoom: 15
-        //     });
-        // }
-
-        // // api.infowindow = new google.maps.InfoWindow();
-        // // api.service = new google.maps.places.PlacesService(map);
-        // //required by the gmaps API
-        // api.mapCallback = function(results, status){
-        //     if(status == window.google.maps.places.PlacesServiceStatus.OK){
-        //         results.forEach((val)=>{
-        //             //TODO: something to val
-        //         });
-        //     }
-        // };
 
         
 
