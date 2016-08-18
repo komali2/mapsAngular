@@ -2,6 +2,7 @@
 <html lang='en' ng-app='mapApp'>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCst7nvykg560t2M9hrxQzHUGX-mvAmjus&libraries=places"></script>
         <link rel='stylesheet' href='styles.css'>
         <script src='js/index.js'></script>
         <script src='js/mapController.js'></script>
@@ -19,6 +20,11 @@
                 This is search area. 
             </div>
             <div id='mapArea' class='area' ng-controller='mapController'>
+                <div id='map'></div>
+                <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+                <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+                <label id="names" >{{marker.title}}</label></a>
+                </div>
                 This is map area.
             </div>
             <div id='listArea' class='area' ng-controller='listController'>
