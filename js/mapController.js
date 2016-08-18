@@ -2,12 +2,13 @@ angular.module('mapApp')
     .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory)=>{
         const cities = mapFactory.cities;
         $scope.map = new google.maps.Map(document.getElementById('map'), mapFactory.mapOptions);
+        const service = new google.maps.places.PlacesService($scope.map);
 
         $scope.markers = [];
         
         var infoWindow = new google.maps.InfoWindow();
         
-        var createMarker = function (info){
+        $scope.createMarker = function (info){
             
             var marker = new google.maps.Marker({
                 map: $scope.map,
@@ -26,7 +27,7 @@ angular.module('mapApp')
         }  
         
         for (var i = 0; i < cities.length; i++){
-            createMarker(cities[i]);
+            $scope.createMarker(cities[i]);
         }
 
         $scope.openInfoWindow = function(e, selectedMarker){

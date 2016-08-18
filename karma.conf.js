@@ -15,6 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyCst7nvykg560t2M9hrxQzHUGX-mvAmjus&libraries=places',
+      'tests/mapsMock.js',
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'js/*.js',
