@@ -1,22 +1,13 @@
 describe('mapFactory', ()=>{
-    var google = {
-        maps : {
-            OverlayView : function () {
-            },
-            Marker : function () {
-            },
-            InfoWindow : function () {
-            }
-        }
-    };
+    var mapFactory;
     beforeEach(()=>{
         module('mapApp');
-
+        inject(($injector)=>{
+            mapFactory = $injector.get('mapFactory');
+        });
     });
-    var mapFactory;
-    beforeEach(inject((mapFactory)=>{
-        mapFactory = mapFactory;
-    }));
+
+
     it('should be a named module', ()=>{
         expect(mapFactory).toBeDefined();
     });
