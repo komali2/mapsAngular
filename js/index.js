@@ -5,14 +5,8 @@ var app = angular.module('mapApp', [])
     .factory('mapFactory', [()=>{
         var map;
         let api = {};
-        api.cities = [
-            {
-                city : 'San Francisco',
-                desc : 'Why is the rent so high?',
-                lat : 37.785326,
-                long : -122.400175
-            },
-        ];
+        var infoWindow;
+
         api.mapOptions = {
             'SOMA': {
                 zoom: 14,
@@ -25,11 +19,35 @@ var app = angular.module('mapApp', [])
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
         };
+
+        
+        api.createMarker = function(info){
+            
+            let marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(info.lat, info.long),
+                title: info.title
+            });
+
+            //set what the inside of the modal should look like
+            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+
+            //this allows the marker to be clicked and a modal opened
+            google.maps.event.addListener(marker, 'click', ()=>{
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                infoWindow.open(map, marker);
+            });
+
+            //return the marker for easy listing
+            return marker;
+
+        };
         
         api.init = function(mapElement, location){
             map = new google.maps.Map(mapElement, api.mapOptions[location]);
+            infoWindow = new google.maps.InfoWindow();
             return map;
-        }
+        };
 
         
 

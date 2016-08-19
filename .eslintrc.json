@@ -30,7 +30,7 @@
         "no-unused-vars": [
             "error",
             {
-                "varsIgnorePattern": "((^|, )(google|app))+$"
+                "varsIgnorePattern": "((^|, )(google|app|))+$"
             }
         ]
     }
