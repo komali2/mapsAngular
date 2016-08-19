@@ -1,7 +1,9 @@
 angular.module('mapApp')
     .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory)=>{
         const cities = mapFactory.cities;
-        $scope.map = new google.maps.Map(document.getElementById('map'), mapFactory.mapOptions);
+        $scope.center = 'SOMA';
+        //$scope.map = new google.maps.Map(document.getElementById('map'), mapFactory.mapOptions[$scope.center]);
+        $scope.map = mapFactory.init(document.getElementById('map'), $scope.center);
         const service = new google.maps.places.PlacesService($scope.map);
 
         $scope.markers = [];

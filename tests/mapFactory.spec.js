@@ -8,9 +8,14 @@ describe('mapFactory', ()=>{
     });
 
 
-    it('should be a named module', ()=>{
+    it('should be defined factory', ()=>{
         expect(mapFactory).toBeDefined();
     });
+    it('should have a mapOptions obj', ()=>{
+        expect(mapFactory.mapOptions).toBeDefined();
+        expect(typeof mapFactory.mapOptions).toBe('object');
+        expect(mapFactory.mapOptions['SOMA']).toBeDefined();
+    })
 
 
 });

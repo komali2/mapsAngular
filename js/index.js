@@ -1,49 +1,35 @@
 'use strict';
 
 var app = angular.module('mapApp', [])
-    .config(($sceProvider)=>{
-        $sceProvider.enabled(false);
-    })
+
     .factory('mapFactory', [()=>{
+        var map;
         let api = {};
         api.cities = [
             {
-                city : 'India',
-                desc : 'This is the best country in the world!',
-                lat : 23.200000,
-                long : 79.225487
+                city : 'San Francisco',
+                desc : 'Why is the rent so high?',
+                lat : 37.785326,
+                long : -122.400175
             },
-            {
-                city : 'New Delhi',
-                desc : 'The Heart of India!',
-                lat : 28.500000,
-                long : 77.250000
-            },
-            {
-                city : 'Mumbai',
-                desc : 'Bollywood city!',
-                lat : 19.000000,
-                long : 72.90000
-            },
-            {
-                city : 'Kolkata',
-                desc : 'Howrah Bridge!',
-                lat : 22.500000,
-                long : 88.400000
-            },
-            {
-                city : 'Chennai  ',
-                desc : 'Kathipara Bridge!',
-                lat : 13.000000,
-                long : 80.250000
-            }
         ];
         api.mapOptions = {
-            zoom: 4,
-            center: new google.maps.LatLng(25,80),
-            mapTypeId: google.maps.MapTypeId.TERRAIN
+            'SOMA': {
+                zoom: 14,
+                center: new google.maps.LatLng(37.779353, -122.398030),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+            'ZENEFITS': {
+                zoom: 4,
+                center: new google.maps.LatLng(37.785394, -122.395406),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
         };
         
+        api.init = function(mapElement, location){
+            map = new google.maps.Map(mapElement, api.mapOptions[location]);
+            return map;
+        }
 
         
 
