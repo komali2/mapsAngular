@@ -14,11 +14,7 @@ var app = angular.module('mapApp', [])
             $scope.map = mapFactory.init(document.getElementById('map'), $scope.center);
             $scope.service = searchFactory.init($scope.map);
             $scope.searchData = {results:[]};
-
-            $scope.setResults = function(newResults){
-                $scope.searchData.results = newResults;
-            };
-
+            
 
             $scope.$watch('searchData.results', (newVal, oldVal)=>{
                 console.log('results updated to, ', newVal);

@@ -29,8 +29,7 @@ angular.module('mapApp')
                 keyword: keyword
             };
             searchFactory.search(request, (result)=>{
-                $scope.setResults(result);
-                
+                $scope.searchData.results = result;
             });
         };
     }]);
