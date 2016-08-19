@@ -31,6 +31,9 @@
             </div>
             <div id='listArea' class='area' ng-controller='listController'>
                 This is list area.
+                <ul id='list'  ng-repeat="result in searchData.results">
+                    <li>{{result.name}}</li>
+                </ul>
             </div>
         </div>
     </body>
