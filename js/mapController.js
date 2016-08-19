@@ -1,6 +1,6 @@
 angular.module('mapApp')
     .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory)=>{
-        const cities = mapFactory.cities;
+        
         $scope.center = 'SOMA';
         //$scope.map = new google.maps.Map(document.getElementById('map'), mapFactory.mapOptions[$scope.center]);
         $scope.map = mapFactory.init(document.getElementById('map'), $scope.center);
@@ -14,5 +14,5 @@ angular.module('mapApp')
         $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
-        }
+        };
     }]);
