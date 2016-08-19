@@ -6,7 +6,8 @@
         "node": true
     },
     "globals":{
-        "angular": true
+        "angular": true,
+        "google": true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -25,6 +26,12 @@
         "semi": [
             "error",
             "always"
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "((^|, )(google|app))+$"
+            }
         ]
     }
 }
