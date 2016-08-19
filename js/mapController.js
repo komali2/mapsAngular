@@ -56,7 +56,6 @@ angular.module('mapApp')
             
         $scope.$watch('searchData.results', (newVal, oldVal)=>{
             newVal.forEach((el)=>{
-                console.log(el);
                 $scope.markers.push(mapFactory.createMarker(el));
             });
         });
