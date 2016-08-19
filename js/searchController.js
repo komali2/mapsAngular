@@ -3,15 +3,16 @@ angular.module('mapApp')
         let api = {};
         var service;
         api.init = function(map){
-            //service = new google.maps.places.PlacesService(map);
+            service = new google.maps.places.PlacesService(map);
             return service;
         };
 
         //example request:
         // var request = {
-        //     location: pyrmont,
+        //     location: google.maps.LatLng,
         //     radius: '500',
-        //     types: ['store']
+        //     types: ['store'],
+        //     keyword: 'something'
         // };
         api.search = function(request, callback){
             service.nearbySearch(request, callback);
@@ -20,11 +21,12 @@ angular.module('mapApp')
 
     }])
     .controller('searchController', ['$scope', 'searchFactory', ($scope, searchFactory)=>{
-        $scope.search = function(location, type){
+        $scope.search = function(keyword, type){
             let request = {
-                location: location,
+                location: $scope.location,
                 radius: '500',
-                types: [type]
+                type: type ? type : undefined,
+                keyword: keyword
             };
             searchFactory.search(request, (result)=>{
                 console.log('result from search was', result);

@@ -18,6 +18,8 @@
             Test
             <div id='searchArea' class='area' ng-controller='searchController'>
                 This is search area. 
+                <input type="text" name="searchbox" value="Search" ng-model='keyword'>
+                <button ng-click='search(keyword, type)'>Search!</button>
             </div>
             <div id='mapArea' class='area' ng-controller='mapController'>
                 <div id='map'></div>

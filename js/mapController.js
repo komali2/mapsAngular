@@ -52,7 +52,7 @@ angular.module('mapApp')
     }])
     .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory)=>{
         
-        $scope.center = 'SOMA';
+        
        
 
         //should have info.title, .desc, .lat, .long
