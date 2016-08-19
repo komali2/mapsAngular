@@ -11,7 +11,7 @@ angular.module('mapApp')
         // var request = {
         //     location: google.maps.LatLng,
         //     radius: '500',
-        //     types: ['store'],
+        //     type: 'store',
         //     keyword: 'something'
         // };
         api.search = function(request, callback){
@@ -29,7 +29,8 @@ angular.module('mapApp')
                 keyword: keyword
             };
             searchFactory.search(request, (result)=>{
-                console.log('result from search was', result);
+                $scope.setResults(result);
+                
             });
         };
     }]);
