@@ -15,7 +15,6 @@ angular.module('mapApp')
         //     keyword: 'something'
         // };
         api.search = function(request, callback){
-            debugger;
             service.nearbySearch(request, callback);
         };
         return api;
@@ -30,8 +29,8 @@ angular.module('mapApp')
                 keyword: keyword
             };
             searchFactory.search(request, (result)=>{
-                //$scope.searchData.results = result;
-                $scope.setResults(result);
+                $scope.searchData.results = result;
+                $scope.$apply();
                 console.log('we got back results', $scope.searchData.results);
             });
         };
