@@ -17,16 +17,17 @@ angular.module('mapApp')
             }
         };
 
-        api.createMarker = function(info){
+        api.createMarker = function(info, position){
             
             let marker = new google.maps.Marker({
                 map: map,
-                position: new google.maps.LatLng(info.lat, info.long),
-                title: info.title
+                //position: new google.maps.LatLng(info.lat, info.long),
+                position: info.geometry.location,
+                title: info.name
             });
 
             //set what the inside of the modal should look like
-            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+            marker.content = '<div class="infoWindowContent">' + info.types[0] + '</div>';
 
             //this allows the marker to be clicked and a modal opened
             google.maps.event.addListener(marker, 'click', ()=>{
@@ -52,8 +53,13 @@ angular.module('mapApp')
     }])
     .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory)=>{
         
-        
-       
+            
+        $scope.$watch('searchData.results', (newVal, oldVal)=>{
+            newVal.forEach((el)=>{
+                console.log(el);
+                $scope.markers.push(mapFactory.createMarker(el));
+            });
+        });
 
         //should have info.title, .desc, .lat, .long
         $scope.createMarker = function(info){

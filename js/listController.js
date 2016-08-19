@@ -6,4 +6,5 @@ angular.module('mapApp')
         // $scope.$watch('searchData.results', (newVal, oldVal)=>{
         //     console.log('list saw the change', newVal);
         // });
+        
     }]);
