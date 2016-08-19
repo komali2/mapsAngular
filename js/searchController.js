@@ -3,7 +3,7 @@ angular.module('mapApp')
         let api = {};
         var service;
         api.init = function(map){
-            service = new google.maps.places.PlacesService(map);
+            //service = new google.maps.places.PlacesService(map);
             return service;
         };
 

@@ -8,7 +8,7 @@ var app = angular.module('mapApp', [])
         'mapFactory', 
         'searchFactory', 
         ($scope, mapFactory, searchFactory)=>{
-        
+            $scope.center = 'SOMA';
             $scope.markers = [];
             console.log('element is', document.getElementById('map'));
             $scope.map = mapFactory.init(document.getElementById('map'), $scope.center);
