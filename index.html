@@ -23,21 +23,15 @@
             </div>
             <div id='mapArea' class='area' ng-controller='mapController'>
                 <div id='map'></div>
-                <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
-                <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
-                <label id="names" >{{marker.title}}</label></a>
-                </div>
+                
                 This is map area.
             </div>
             <div id='listArea' class='area' ng-controller='listController'>
                 This is list area.
-                <ul id='list'>
-                    <li ng-repeat="result in searchData.results">
-                        <div class='name'>{{result.name}}</div>
-                        <img class='icon' src='{{result.icon}}'></img>
-                        
-                    </li>
-                </ul>
+                <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+                <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+                <label id="names" >{{marker.title}}</label></a>
+                </div>
             </div>
         </div>
     </body>
