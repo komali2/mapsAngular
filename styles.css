@@ -4,6 +4,15 @@ body {
 a {
     text-decoration: none;
   }
+.main{
+    display: flex;
+    flex-direction: column;
+}
+#resultsArea{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 #map{
     height:500px; 
     width:500px; 
@@ -12,6 +21,11 @@ a {
 #repeat{ 
      display: inline;
      }
+#listArea{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+}
 #listArea .result { 
      width: 1000px; 
      margin: 13px 3px 3px 0px; 
@@ -35,3 +49,8 @@ a {
 #names { 
      cursor: pointer; 
        }
+@media (max-width: 800px) {
+    #listArea {
+        flex-direction: row;    
+    }
+}
