@@ -4,18 +4,6 @@ angular.module('mapApp')
         let api = {};
         var infoWindow;
 
-        api.mapOptions = {
-            'SOMA': {
-                zoom: 14,
-                center: new google.maps.LatLng(37.779353, -122.398030),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            },
-            'ZENEFITS': {
-                zoom: 4,
-                center: new google.maps.LatLng(37.785394, -122.395406),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-        };
 
         api.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
@@ -55,7 +43,11 @@ angular.module('mapApp')
         };
         
         api.init = function(mapElement, location){
-            map = new google.maps.Map(mapElement, api.mapOptions[location]);
+            map = new google.maps.Map(mapElement, {
+                center: location,
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
             infoWindow = new google.maps.InfoWindow();
             return map;
         };
@@ -83,4 +75,9 @@ angular.module('mapApp')
         $scope.openInfoWindow = function(e, selectedMarker){
             mapFactory.openInfoWindow(e, selectedMarker);
         };
+
+        $scope.map.addListener('bounds_changed', ()=>{
+            console.log('bounds changed', $scope.map.getCenter());
+            $scope.$emit('changedLocation', $scope.map.getCenter());
+        });
     }]);

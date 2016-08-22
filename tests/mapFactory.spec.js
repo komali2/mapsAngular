@@ -23,12 +23,6 @@ describe('mapFactory', ()=>{
     it('should be defined factory', ()=>{
         expect(mapFactory).toBeDefined();
     });
-    it('should have a mapOptions obj', ()=>{
-        expect(mapFactory.mapOptions).toBeDefined();
-        expect(typeof mapFactory.mapOptions).toBe('object');
-        expect(mapFactory.mapOptions['SOMA']).toBeDefined();
-        expect(mapFactory.mapOptions['SOMA']['center']).toBeDefined();
-    });
 
     it('should init', ()=>{
         expect(mapFactory.init).toBeDefined();
