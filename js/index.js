@@ -20,4 +20,8 @@ var app = angular.module('mapApp', [])
                 $scope.$apply();
             });
 
+            $scope.$on('search', ()=>{
+                $scope.markers = [];
+            });
+
         }]);

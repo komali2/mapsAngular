@@ -16,6 +16,7 @@ angular.module('mapApp')
         // };
         api.search = function(request, callback){
             service.nearbySearch(request, callback);
+            
         };
         api.getDetails = function(placeId, cb){
             service.getDetails({placeId}, (place, status)=>{
@@ -34,6 +35,7 @@ angular.module('mapApp')
                 keyword: keyword
             };
             searchFactory.search(request, (result)=>{
+                $scope.$emit('search');
                 $scope.searchData.results = result;
                 $scope.$apply();
             });
