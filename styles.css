@@ -24,7 +24,7 @@ a {
 #listArea{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 }
 #listArea .result { 
      width: 1000px; 
@@ -49,7 +49,7 @@ a {
 #names { 
      cursor: pointer; 
        }
-@media (max-width: 800px) {
+@media (max-width: 650px) {
     #listArea {
         flex-direction: row;    
     }

@@ -15,20 +15,15 @@
             
         </nav>
         <div class='main' ng-controller='mainController'>
-            Test
             <div id='searchArea' class='area' ng-controller='searchController'>
-                This is search area. 
                 <input type="text" name="searchbox" value="Search" ng-model='keyword'>
                 <button ng-click='search(keyword, type)'>Search!</button>
             </div>
             <div id='resultsArea'>
                 <div id='mapArea' class='area' ng-controller='mapController'>
                     <div id='map'></div>
-                    
-                    This is map area.
                 </div>
                 <div id='listArea' class='area' ng-controller='listController'>
-                    This is list area.
                     <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
                     <a class="result" href="#" ng-click="openInfoWindow($event, marker)">
                     <label id="names" >{{marker.title}}</label></a>
