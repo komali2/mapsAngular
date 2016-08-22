@@ -21,6 +21,9 @@ var app = angular.module('mapApp', [])
             });
 
             $scope.$on('search', ()=>{
+                for(var i = 0; i < $scope.markers.length; i++){
+                    $scope.markers[i].setMap(null);
+                }
                 $scope.markers = [];
             });
 
