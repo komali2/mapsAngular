@@ -15,19 +15,9 @@ var app = angular.module('mapApp', [])
             $scope.service = searchFactory.init($scope.map);
             $scope.searchData = {results:[]};
 
-            $scope.setLocation = function(location){
-                $scope.location = location;
-                $scope.$apply();
-            };
-            
             $scope.$on('changedLocation', (event, location)=>{
                 $scope.location = location;
-                console.log('heard event');
                 $scope.$apply();
             });
-
-            $scope.$watch('$scope.location', (newVal, oldVal)=>{
-                console.log('location changed');
-            }, true);
 
         }]);

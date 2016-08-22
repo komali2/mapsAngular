@@ -27,7 +27,6 @@ angular.module('mapApp')
     }])
     .controller('searchController', ['$scope', 'searchFactory', ($scope, searchFactory)=>{
         $scope.search = function(keyword, type){
-            console.log('location is', $scope.location);
             let request = {
                 location: $scope.location,
                 radius: '500',

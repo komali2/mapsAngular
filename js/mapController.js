@@ -77,7 +77,6 @@ angular.module('mapApp')
         };
 
         $scope.map.addListener('bounds_changed', ()=>{
-            console.log('bounds changed', $scope.map.getCenter());
             $scope.$emit('changedLocation', $scope.map.getCenter());
         });
     }]);
