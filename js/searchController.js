@@ -36,7 +36,6 @@ angular.module('mapApp')
             searchFactory.search(request, (result)=>{
                 $scope.searchData.results = result;
                 $scope.$apply();
-                console.log('we got back results', $scope.searchData.results);
             });
         };
     }]);
