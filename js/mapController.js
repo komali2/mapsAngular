@@ -17,6 +17,11 @@ angular.module('mapApp')
             }
         };
 
+        api.openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+            google.maps.event.trigger(selectedMarker, 'click');
+        };
+
         api.createMarker = function(info, position){
             
             let marker = new google.maps.Marker({
@@ -76,7 +81,6 @@ angular.module('mapApp')
         
     
         $scope.openInfoWindow = function(e, selectedMarker){
-            e.preventDefault();
-            google.maps.event.trigger(selectedMarker, 'click');
+            mapFactory.openInfoWindow(e, selectedMarker);
         };
     }]);
