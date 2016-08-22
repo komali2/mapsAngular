@@ -17,6 +17,11 @@ angular.module('mapApp')
         api.search = function(request, callback){
             service.nearbySearch(request, callback);
         };
+        api.getDetails = function(placeId, cb){
+            service.getDetails({placeId}, (place, status)=>{
+                cb(place);
+            });
+        };
         return api;
 
     }])

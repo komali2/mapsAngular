@@ -1,5 +1,5 @@
 angular.module('mapApp')
-    .factory('mapFactory', [()=>{
+    .factory('mapFactory', ['searchFactory', (searchFactory)=>{
         var map;
         let api = {};
         var infoWindow;
@@ -21,9 +21,13 @@ angular.module('mapApp')
             
             let marker = new google.maps.Marker({
                 map: map,
-                //position: new google.maps.LatLng(info.lat, info.long),
                 position: info.geometry.location,
-                title: info.name
+                title: info.name,
+                icon: {
+                    url: 'http://maps.gstatic.com/mapfiles/circle.png',
+                    anchor: new google.maps.Point(10, 10),
+                    scaledSize: new google.maps.Size(10, 17)
+                }
             });
 
             //set what the inside of the modal should look like
@@ -31,8 +35,13 @@ angular.module('mapApp')
 
             //this allows the marker to be clicked and a modal opened
             google.maps.event.addListener(marker, 'click', ()=>{
-                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-                infoWindow.open(map, marker);
+                searchFactory.getDetails(info.place_id, (res)=>{
+                    
+                    let phone = res.formatted_phone_number ? res.formatted_phone_number : '';
+                    let address = res.formatted_address ? res.formatted_address : '';
+                    infoWindow.setContent(`<div class="info"><h2>${res.name}</h2><div class='phone'>${phone}</div><div class='address'>${address}</div><div class='website'>${res.website}</div></div>`);
+                    infoWindow.open(map, marker);
+                });
             });
 
             //return the marker for easy listing

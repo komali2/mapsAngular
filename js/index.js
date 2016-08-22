@@ -17,7 +17,7 @@ var app = angular.module('mapApp', [])
             
 
             $scope.$watch('searchData.results', (newVal, oldVal)=>{
-                console.log('results updated to, ', newVal);
+                
             }, true);
 
         }]);
