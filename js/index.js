@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('mapApp', [])
+var app = angular.module('mapApp', ['ngAnimate'])
 
     
     .controller('mainController', [

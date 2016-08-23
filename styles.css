@@ -87,6 +87,7 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
 }
 
 #listArea .result:hover{
@@ -101,5 +102,17 @@ a {
 }
 
 .widthSet{
-    width: 200px;
+    animation: myChange;
+}
+
+@keyframes myChange {
+    from {
+        width: 0px;
+    } to {
+        width: 200px;
+    }
+}
+
+.ng-enter{
+    animation: 5s myChange;
 }
