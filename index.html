@@ -2,45 +2,44 @@
 <html lang='en' ng-app='mapApp'>
 
 <head>
-    <!--
+  <!--
         CDNs are used to reduce download size for devs for sake of this assignment, as well as is general 
         good case practice, as CDNs are cached by most browsers. 
     -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCst7nvykg560t2M9hrxQzHUGX-mvAmjus&libraries=places"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js'></script>
-    <link rel='stylesheet' href='styles.css'>
-    <!-- Angular Files -->
-    <script src='js/index.js'></script>
-    <script src='js/mapController.js'></script>
-    <script src='js/searchController.js'></script>
-    <script src='js/listController.js'></script>
-    <title>Map App!</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCst7nvykg560t2M9hrxQzHUGX-mvAmjus&libraries=places"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js'></script>
+  <link rel='stylesheet' href='styles.css'>
+  <!-- Angular Files -->
+  <script src='js/index.js'></script>
+  <script src='js/mapController.js'></script>
+  <script src='js/searchController.js'></script>
+  <script src='js/listController.js'></script>
+  <title>Map App!</title>
 </head>
 
 <body>
-    <!-- Main App -->
-    <div class='main' ng-controller='mainController'>
-        <!-- SearchBox and Button -->
-        <div id='searchArea' class='area' ng-controller='searchController'>
-            <!-- ng-keypress is a general solution to the "capture enter" problem -->
-            <input type="text" name="searchbox" value="Search" ng-model='keyword' autofocus='true' placeholder='Search for something...'
-                ng-keypress="($event.which === 13)?search(keyword, type):0">
-            <button ng-click='search(keyword, type)'>SEARCH</button>
-        </div>
-        <!-- Map and Results -->
-        <div id='resultsArea'>
-            <div id='mapArea' class='area' ng-controller='mapController'>
-                <div id='map'></div>
-            </div>
-            <div id='listArea' class='area' ng-controller='listController'>
-                <div id="repeat" ng-repeat="marker in markers | orderBy : 'title' | limitTo: 11">
-                    <a class="result" href="#" ng-click="openInfoWindow($event, marker)">
-                    {{marker.title}}</a>
-                </div>
-            </div>
-        </div>
+  <!-- Main App -->
+  <div class='main' ng-controller='mainController'>
+    <!-- SearchBox and Button -->
+    <div id='searchArea' class='area' ng-controller='searchController'>
+      <!-- ng-keypress is a general solution to the "capture enter" problem -->
+      <input type="text" name="searchbox" value="Search" ng-model='keyword' autofocus='true' placeholder='Search for something...'
+        ng-keypress="($event.which === 13)?search(keyword, type):0">
+      <button ng-click='search(keyword, type)'>SEARCH</button>
     </div>
+    <!-- Map and Results -->
+    <div id='resultsArea'>
+      <div id='mapArea' class='area' ng-controller='mapController'>
+        <div id='map'></div>
+      </div>
+      <div id='listArea' class='area' ng-controller='listController'>
+        <div id="repeat" ng-repeat="marker in markers | orderBy : 'title' | limitTo: 11">
+          <a class="result" href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
