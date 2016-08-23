@@ -38,7 +38,8 @@ angular.module('mapApp')
 
                     let website = '&#127760;';
                     website = res.website ? website + ' ' + res.website : '';
-                    infoWindow.setContent(`<div class="info"><h2>${res.name}</h2><div class='phone'>${phone}</div><div class='address'>${address}</div><div class='website'>${website}</div></div>`);
+
+                    infoWindow.setContent(`<div class="info"><h2>${res.name}</h2><div class='phone'>${phone}</div><div class='address'>${address}</div><div class='website'><a href='${res.website}'>${website}</a></div></div>`);
                     infoWindow.open(map, marker);
                 });
             });
