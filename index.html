@@ -24,7 +24,7 @@
                     <div id='map'></div>
                 </div>
                 <div id='listArea' class='area' ng-controller='listController'>
-                    <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+                    <div id="repeat" ng-repeat="marker in markers | orderBy : 'title' | limitTo: 11">
                     <a class="result" href="#" ng-click="openInfoWindow($event, marker)">
                     {{marker.title}}</a>
                     </div>
