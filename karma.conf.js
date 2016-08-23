@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Wed Aug 17 2016 15:32:23 GMT-0700 (Pacific Daylight Time)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -18,6 +18,7 @@ module.exports = function(config) {
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyCst7nvykg560t2M9hrxQzHUGX-mvAmjus&libraries=places',
       'tests/mapsMock.js',
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'js/*.js',
       'tests/**/*.js'
@@ -26,7 +27,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      
+
     ],
 
 
