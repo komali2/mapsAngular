@@ -37,6 +37,7 @@ angular.module('mapApp')
             searchFactory.search(request, (result)=>{
                 $scope.$emit('search');
                 $scope.searchData.results = result;
+                angular.element(document.querySelector('#listArea')).addClass('widthSet');
                 $scope.$apply();
             });
         };
