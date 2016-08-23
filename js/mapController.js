@@ -30,9 +30,15 @@ angular.module('mapApp')
             google.maps.event.addListener(marker, 'click', ()=>{
                 searchFactory.getDetails(info.place_id, (res)=>{
                     
-                    let phone = res.formatted_phone_number ? res.formatted_phone_number : '';
-                    let address = res.formatted_address ? res.formatted_address : '';
-                    infoWindow.setContent(`<div class="info"><h2>${res.name}</h2><div class='phone'>${phone}</div><div class='address'>${address}</div><div class='website'>${res.website}</div></div>`);
+                    let phone = '&#128222;';
+                    phone = res.formatted_phone_number ? phone + ' ' + res.formatted_phone_number : '';
+
+                    let address = '&#128204;';
+                    address = res.formatted_address ? address + ' ' + res.formatted_address : '';
+
+                    let website = '&#127760;';
+                    website = res.website ? website + ' ' + res.website : '';
+                    infoWindow.setContent(`<div class="info"><h2>${res.name}</h2><div class='phone'>${phone}</div><div class='address'>${address}</div><div class='website'>${website}</div></div>`);
                     infoWindow.open(map, marker);
                 });
             });
