@@ -1,30 +1,29 @@
 angular.module('mapApp')
-    .factory('mapFactory', ['searchFactory', (searchFactory)=>{
-        var map;
+    .factory('mapFactory', ['searchFactory', (searchFactory) => {
+        let map;
         let api = {};
-        var infoWindow;
+        let infoWindow;
 
-
-        api.openInfoWindow = function(e, selectedMarker){
+        api.openInfoWindow = function (e, selectedMarker) {
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
         };
 
-        api.createMarker = function(info, position){
-            
+        api.createMarker = function (info) {
+
             let marker = new google.maps.Marker({
                 map: map,
                 position: info.geometry.location,
                 title: info.name
             });
 
-            //set what the inside of the modal should look like
+            // Set what the inside of the modal should look like
             marker.content = '<div class="infoWindowContent">' + info.types[0] + '</div>';
 
-            //this allows the marker to be clicked and a modal opened
-            google.maps.event.addListener(marker, 'click', ()=>{
-                searchFactory.getDetails(info.place_id, (res)=>{
-                    
+            // This allows the marker to be clicked and a modal opened
+            google.maps.event.addListener(marker, 'click', () => {
+                searchFactory.getDetails(info.place_id, (res) => {
+
                     let phone = '&#128222;';
                     phone = res.formatted_phone_number ? phone + ' ' + res.formatted_phone_number : '';
 
@@ -39,12 +38,13 @@ angular.module('mapApp')
                 });
             });
 
-            //return the marker for easy listing
+            // Return the marker for easy listing
             return marker;
 
         };
-        
-        api.init = function(mapElement, location){
+
+        // Generate the initial map
+        api.init = function (mapElement, location) {
             map = new google.maps.Map(mapElement, {
                 center: location,
                 zoom: 14,
@@ -54,31 +54,28 @@ angular.module('mapApp')
             return map;
         };
 
-        
-
         return api;
-        
     }])
-    .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory)=>{
-        
-            
-        $scope.$watch('searchData.results', (newVal, oldVal)=>{
-            newVal.forEach((el)=>{
+    .controller('mapController', ['$scope', 'mapFactory', ($scope, mapFactory) => {
+
+        $scope.$watch('searchData.results', (newVal) => {
+            newVal.forEach((el) => {
                 $scope.markers.push(mapFactory.createMarker(el));
             });
         });
 
-        //should have info.title, .desc, .lat, .long
-        $scope.createMarker = function(info){
+        // Info is a Google maps Location class
+        $scope.createMarker = function (info) {
             $scope.markers.push(mapFactory.createMarker(info));
         };
-        
-    
-        $scope.openInfoWindow = function(e, selectedMarker){
+
+        $scope.openInfoWindow = function (e, selectedMarker) {
             mapFactory.openInfoWindow(e, selectedMarker);
         };
 
-        $scope.map.addListener('bounds_changed', ()=>{
+        // This is triggered whenever the user moves the map or zooms in/out
+        // It updates the master location via emitter
+        $scope.map.addListener('bounds_changed', () => {
             $scope.$emit('changedLocation', $scope.map.getCenter());
         });
     }]);
