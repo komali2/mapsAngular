@@ -61,11 +61,17 @@ a {
 #map .phone{
     margin-bottom: 5px;
 }
+#map .phone:hover{
+    cursor: text;
+}
 #map .website{
     margin-bottom: 5px;
 }
 #map .address{
     margin-bottom: 5px;
+}
+#map .address:hover{
+    cursor: text;
 }
 
 #listArea{
