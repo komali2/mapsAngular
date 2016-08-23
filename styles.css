@@ -10,7 +10,9 @@ a {
     justify-content: center;
     align-items: center;
 }
-
+#searchArea{
+    margin-bottom: 10px;
+}
 #searchArea button{
     background-color: #ee8a20;
     height: 33px;
@@ -43,7 +45,8 @@ a {
     height:500px; 
     width:500px; 
     box-shadow: 3px 3px 10px gray;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 #map .info{
@@ -79,6 +82,7 @@ a {
     padding: 0 10px;
     padding-right: 5px;
     margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 5px;
     max-width: 90%;
     overflow: hidden;
