@@ -26,7 +26,7 @@
                 <div id='listArea' class='area' ng-controller='listController'>
                     <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
                     <a class="result" href="#" ng-click="openInfoWindow($event, marker)">
-                    <label id="names" >{{marker.title}}</label></a>
+                    {{marker.title}}</a>
                     </div>
                 </div>
             </div>
