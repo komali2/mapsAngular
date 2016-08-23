@@ -63,8 +63,10 @@ a {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 200px;
 }
 #listArea .result { 
+    display: inline-block;
     text-align: center; 
     width: 85px; 
     color: #656565; 
@@ -77,9 +79,10 @@ a {
     padding: 0 10px;
     padding-right: 5px;
     margin: 14px 11px 11px 11px;
-    white-space: nowrap;
+    max-width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #listArea .result:hover{
@@ -88,6 +91,7 @@ a {
 
 @media (max-width: 740px) {
     #listArea {
-        flex-direction: row;    
+        flex-direction: row; 
+        width: 100%;   
     }
 }
