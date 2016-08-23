@@ -21,6 +21,12 @@ a {
     padding: 0 20px;
     margin: 14px 11px 11px 11px;
 }
+
+#searchArea input{
+    width: 300px;
+    height: 20px;
+    border-radius: 3px;
+}
 #resultsArea{
     display: flex;
     flex-direction: row;
