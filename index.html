@@ -16,7 +16,7 @@
         </nav>
         <div class='main' ng-controller='mainController'>
             <div id='searchArea' class='area' ng-controller='searchController'>
-                <input type="text" name="searchbox" value="Search" ng-model='keyword' autofocus='true' placeholder='Search for something...'>
+                <input type="text" name="searchbox" value="Search" ng-model='keyword' autofocus='true' placeholder='Search for something...' ng-keypress="($event.which === 13)?search(keyword, type):0">
                 <button ng-click='search(keyword, type)'>SEARCH</button>
             </div>
             <div id='resultsArea'>
