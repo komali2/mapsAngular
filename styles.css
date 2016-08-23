@@ -120,6 +120,8 @@ a {
     }
 }
 
+
 .ng-enter{
     animation: 1s myChange;
 }
+
