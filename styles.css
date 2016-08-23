@@ -68,7 +68,7 @@ a {
 #listArea .result { 
     display: inline-block;
     text-align: center; 
-    width: 85px; 
+    width: 100%; 
     color: #656565; 
     cursor: pointer;
     background-color: #ECECEC;
