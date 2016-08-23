@@ -59,10 +59,13 @@ a {
 
 }
 #map .phone{
-
+    margin-bottom: 5px;
 }
 #map .website{
-
+    margin-bottom: 5px;
+}
+#map .address{
+    margin-bottom: 5px;
 }
 
 #listArea{
