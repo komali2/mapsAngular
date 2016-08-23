@@ -10,6 +10,17 @@ a {
     justify-content: center;
     align-items: center;
 }
+
+#searchArea button{
+    background-color: #ee8a20;
+    height: 33px;
+    border: 1px solid #d37520;
+    border-radius: 3px;
+    color: #fff;
+    line-height: 32px;
+    padding: 0 20px;
+    margin: 14px 11px 11px 11px;
+}
 #resultsArea{
     display: flex;
     flex-direction: row;
