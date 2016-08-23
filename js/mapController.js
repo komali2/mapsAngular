@@ -15,12 +15,7 @@ angular.module('mapApp')
             let marker = new google.maps.Marker({
                 map: map,
                 position: info.geometry.location,
-                title: info.name,
-                icon: {
-                    url: 'http://maps.gstatic.com/mapfiles/circle.png',
-                    anchor: new google.maps.Point(10, 10),
-                    scaledSize: new google.maps.Size(10, 17)
-                }
+                title: info.name
             });
 
             //set what the inside of the modal should look like
