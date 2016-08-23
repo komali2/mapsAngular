@@ -4,8 +4,7 @@
   "description": "��#\u0000 \u0000m\u0000a\u0000p\u0000s\u0000A\u0000n\u0000g\u0000u\u0000l\u0000a\u0000r\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "karma start karma.conf.js",
-    "start": "nodemon server/server.js"
+    "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +23,5 @@
     "karma": "^1.2.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2"
-  },
+  }
 }
