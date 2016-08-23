@@ -102,7 +102,7 @@ a {
 }
 
 .widthSet{
-    animation: 2s myChange;
+    animation: 1s myChange;
     width:200px;
 }
 
@@ -115,5 +115,5 @@ a {
 }
 
 .ng-enter{
-    animation: 2s myChange;
+    animation: 1s myChange;
 }
