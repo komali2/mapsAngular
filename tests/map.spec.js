@@ -34,9 +34,10 @@ describe('mapFactory', ()=>{
 
     it('should have a createMarker function', ()=>{
         expect(mapFactory.createMarker).toBeDefined();
-        
-        //let marker = mapFactory.createMarker({lat: 1, long: 2});
-        //expect(marker).toBeDefined();
+    });
+
+    it('should have a openInfoWindow function', ()=>{
+        expect(mapFactory.openInfoWindow).toBeDefined();
     });
 
 
